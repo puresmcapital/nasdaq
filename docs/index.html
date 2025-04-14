@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Analysis Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-white shadow-lg">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-gray-800">
+                    Technical Analysis
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="#analysis" class="text-gray-600 hover:text-gray-900">Analysis</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <section class="mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Technical Analysis</h1>
+            <p class="text-xl text-gray-600">Real-time stock analysis and market insights</p>
+        </section>
+
+        <section id="analysis" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Analysis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Analysis cards will be dynamically added here -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Stock Analysis</h3>
+                    <p class="text-gray-600">Detailed technical analysis of market trends and patterns.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">About</h2>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <p class="text-gray-600">
+                    This platform provides comprehensive technical analysis of stocks using advanced algorithms
+                    and machine learning models. Our analysis includes trend identification, pattern recognition,
+                    and market sentiment analysis.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2024 Technical Analysis. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
