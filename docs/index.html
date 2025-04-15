@@ -85,6 +85,61 @@
                     <p class="text-gray-300">Get instant technical analysis for any stock or cryptocurrency with pinpoint accuracy.</p>
                 </div>
             </div>
+            
+            <!-- TradingView Widget -->
+            <div class="tradingview-widget-container mt-12 rounded-lg overflow-hidden">
+                <div class="tradingview-widget-header bg-gray-900 p-4 border-b border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-400">Live Market Chart</h3>
+                </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_chart" style="height:500px;"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": "100%",
+                        "height": 500,
+                        "symbol": "COINBASE:SOLUSD",
+                        "interval": "D",
+                        "timezone": "Etc/UTC",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_chart"
+                    });
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+            
+            <!-- TradingView Technical Analysis Widget -->
+            <div class="tradingview-widget-container mt-6 rounded-lg overflow-hidden">
+                <div class="tradingview-widget-header bg-gray-900 p-4 border-b border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-400">Technical Analysis</h3>
+                </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                    /* JavaScript comment to avoid syntax errors
+                    {
+                      "interval": "1D",
+                      "width": "100%",
+                      "isTransparent": true,
+                      "height": "450",
+                      "symbol": "COINBASE:SOLUSD",
+                      "showIntervalTabs": true,
+                      "locale": "en",
+                      "colorTheme": "dark"
+                    }
+                    */
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
         </section>
 
         <section id="interactive" class="mb-20">
@@ -182,7 +237,7 @@
                 <div class="section-line"></div>
             </div>
             <div class="mt-10 flex flex-col items-center">
-                <div class="partner-card bg-gray-900 p-6 rounded-lg max-w-2xl w-full">
+                <div class="partner-card bg-gray-900 p-6 rounded-lg max-w-2xl w-full mb-8">
                     <div class="flex items-center justify-between">
                         <div>
                             <h3 class="text-2xl font-bold text-blue-400 mb-2">Eliza OS</h3>
@@ -199,6 +254,48 @@
                         <a href="https://www.elizaos.ai/" target="_blank" class="text-blue-400 flex items-center">
                             Visit Eliza OS <i class="fas fa-arrow-right ml-2"></i>
                         </a>
+                    </div>
+                </div>
+                
+                <!-- ElizaOS Technology Details -->
+                <div class="elizaos-details bg-gray-900 p-6 rounded-lg max-w-2xl w-full">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">ElizaOS Technology</h3>
+                    <p class="text-gray-300 mb-4">
+                        Eliza is a powerful multi-agent simulation framework designed to create, deploy, and manage autonomous AI agents. 
+                        Built with TypeScript, it provides a flexible and extensible platform for developing intelligent agents that can interact 
+                        across multiple platforms while maintaining consistent personalities and knowledge.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-blue-300 mb-2">Key Features</h4>
+                            <ul class="text-gray-400 space-y-1">
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Platform Integration</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Flexible Model Support</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Character System</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Multi-Agent Architecture</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Memory Management</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-blue-300 mb-2">Use Cases</h4>
+                            <ul class="text-gray-400 space-y-1">
+                                <li><i class="fas fa-robot text-blue-400 mr-2"></i>AI Assistants</li>
+                                <li><i class="fas fa-chart-line text-blue-400 mr-2"></i>Market Analysis</li>
+                                <li><i class="fas fa-comments text-blue-400 mr-2"></i>Social Media Personas</li>
+                                <li><i class="fas fa-brain text-blue-400 mr-2"></i>Knowledge Workers</li>
+                                <li><i class="fas fa-user-friends text-blue-400 mr-2"></i>Interactive Characters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-900 bg-opacity-20 p-4 rounded-lg border border-blue-800">
+                        <h4 class="text-lg font-semibold text-blue-300 mb-2">$NASDAQ Implementation</h4>
+                        <p class="text-gray-300">
+                            Our technical analysis capabilities are built on ElizaOS's core features, enabling our AI to process market data,
+                            identify patterns, and generate accurate predictions with unprecedented precision. The framework's ability to handle
+                            complex data streams and maintain context awareness makes it the perfect foundation for our financial analysis tools.
+                        </p>
                     </div>
                 </div>
             </div>
