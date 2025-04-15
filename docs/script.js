@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Add user input to terminal
             const userInputElement = document.createElement('p');
             userInputElement.className = 'terminal-line';
-            userInputElement.innerHTML = `<span class="text-green-400">$</span> <span class="text-white">${input}</span>`;
+            userInputElement.innerHTML = `<span class="text-blue-400">$</span> <span class="text-white">${input}</span>`;
             terminalOutput.appendChild(userInputElement);
 
             // Clear input field
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Add AI response to terminal
                     const aiResponseElement = document.createElement('p');
                     aiResponseElement.className = 'terminal-line';
-                    aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> ${analysis}`;
+                    aiResponseElement.innerHTML = `<span class="text-blue-400">$NASDAQ AI:</span> ${analysis}`;
                     terminalOutput.appendChild(aiResponseElement);
                 } else {
                     // Remove loading message
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // If no valid symbol was found
                     const aiResponseElement = document.createElement('p');
                     aiResponseElement.className = 'terminal-line';
-                    aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> I'm sorry, I couldn't identify a cryptocurrency or stock symbol in your query. Try asking about BTC, ETH, SOL, or NASDAQ token.`;
+                    aiResponseElement.innerHTML = `<span class="text-blue-400">$NASDAQ AI:</span> I'm sorry, I couldn't identify a cryptocurrency or stock symbol in your query. Try asking about BTC, ETH, SOL, or $NASDAQ token.`;
                     terminalOutput.appendChild(aiResponseElement);
                 }
             } catch (error) {
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add AI response to terminal
                 const aiResponseElement = document.createElement('p');
                 aiResponseElement.className = 'terminal-line';
-                aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> ${response}`;
+                aiResponseElement.innerHTML = `<span class="text-blue-400">$NASDAQ AI:</span> ${response}`;
                 terminalOutput.appendChild(aiResponseElement);
             }
             
@@ -196,9 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (input.toLowerCase().includes('sol') || input.toLowerCase().includes('solana')) {
                 return generateAnalysis('SOL', 'Solana');
             } else if (input.toLowerCase().includes('nasdaq')) {
-                return 'NASDAQ token is currently in the accumulation phase with strong buy signals. The recent price action indicates a potential breakout in the next 24-48 hours. Technical indicators show bullish divergence on multiple timeframes.';
+                return '$NASDAQ token is currently in the accumulation phase with strong buy signals. The recent price action indicates a potential breakout in the next 24-48 hours. Technical indicators show bullish divergence on multiple timeframes.';
             } else {
-                return 'I\'m sorry, I don\'t have enough data to analyze that yet. Try asking about BTC, ETH, SOL, or NASDAQ token.';
+                return 'I\'m sorry, I don\'t have enough data to analyze that yet. Try asking about BTC, ETH, SOL, or $NASDAQ token.';
             }
         }
 
