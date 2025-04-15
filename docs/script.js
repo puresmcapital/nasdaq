@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (terminalInput && terminalOutput && submitTerminal) {
         // Function to handle terminal input
-        const handleTerminalInput = () => {
+        const handleTerminalInput = async () => {
             const input = terminalInput.value.trim();
             if (!input) return;
 
@@ -93,36 +93,114 @@ document.addEventListener('DOMContentLoaded', () => {
             // Scroll to bottom of terminal
             terminalOutput.scrollTop = terminalOutput.scrollHeight;
 
-            // Simulate API response (replace with actual API call later)
-            setTimeout(() => {
+            try {
+                // Parse the input to determine what the user is asking about
+                const symbol = extractSymbol(input);
+                
+                if (symbol) {
+                    // Call the Eliza API
+                    const analysis = await fetchTechnicalAnalysis(symbol);
+                    
+                    // Remove loading message
+                    terminalOutput.removeChild(loadingElement);
+                    
+                    // Add AI response to terminal
+                    const aiResponseElement = document.createElement('p');
+                    aiResponseElement.className = 'terminal-line';
+                    aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> ${analysis}`;
+                    terminalOutput.appendChild(aiResponseElement);
+                } else {
+                    // Remove loading message
+                    terminalOutput.removeChild(loadingElement);
+                    
+                    // If no valid symbol was found
+                    const aiResponseElement = document.createElement('p');
+                    aiResponseElement.className = 'terminal-line';
+                    aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> I'm sorry, I couldn't identify a cryptocurrency or stock symbol in your query. Try asking about BTC, ETH, SOL, or NASDAQ token.`;
+                    terminalOutput.appendChild(aiResponseElement);
+                }
+            } catch (error) {
+                console.error('Error fetching analysis:', error);
+                
                 // Remove loading message
                 terminalOutput.removeChild(loadingElement);
-
-                // Generate a fake analysis response based on input
-                let response = '';
                 
-                if (input.toLowerCase().includes('btc') || input.toLowerCase().includes('bitcoin')) {
-                    response = generateAnalysis('BTC', 'Bitcoin');
-                } else if (input.toLowerCase().includes('eth') || input.toLowerCase().includes('ethereum')) {
-                    response = generateAnalysis('ETH', 'Ethereum');
-                } else if (input.toLowerCase().includes('sol') || input.toLowerCase().includes('solana')) {
-                    response = generateAnalysis('SOL', 'Solana');
-                } else if (input.toLowerCase().includes('nasdaq')) {
-                    response = 'NASDAQ token is currently in the accumulation phase with strong buy signals. The recent price action indicates a potential breakout in the next 24-48 hours. Technical indicators show bullish divergence on multiple timeframes.';
-                } else {
-                    response = 'I\'m sorry, I don\'t have enough data to analyze that yet. Try asking about BTC, ETH, SOL, or NASDAQ token.';
-                }
-
+                // Fallback to mocked data if API fails
+                const response = generateFallbackAnalysis(input);
+                
                 // Add AI response to terminal
                 const aiResponseElement = document.createElement('p');
                 aiResponseElement.className = 'terminal-line';
                 aiResponseElement.innerHTML = `<span class="text-green-400">NASDAQ AI:</span> ${response}`;
                 terminalOutput.appendChild(aiResponseElement);
-
-                // Scroll to bottom of terminal
-                terminalOutput.scrollTop = terminalOutput.scrollHeight;
-            }, 1500);
+            }
+            
+            // Scroll to bottom of terminal
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
         };
+
+        // Function to extract a symbol from user input
+        function extractSymbol(input) {
+            input = input.toUpperCase();
+            
+            // Common crypto/stock symbols to look for
+            const commonSymbols = ['BTC', 'ETH', 'SOL', 'NASDAQ', 'DOGE', 'XRP', 'ADA', 'AVAX', 'DOT', 'MATIC'];
+            
+            // Check if any common symbols are in the input
+            for (const symbol of commonSymbols) {
+                if (input.includes(symbol)) {
+                    return symbol;
+                }
+            }
+            
+            // Check for Bitcoin/Ethereum full names
+            if (input.includes('BITCOIN')) return 'BTC';
+            if (input.includes('ETHEREUM')) return 'ETH';
+            if (input.includes('SOLANA')) return 'SOL';
+            
+            return null;
+        }
+
+        // Function to fetch technical analysis from Eliza API
+        async function fetchTechnicalAnalysis(symbol) {
+            // API endpoint for Eliza technical analysis
+            const apiEndpoint = 'https://api.elizaos.ai/technical-analysis';
+            
+            try {
+                const response = await fetch(`${apiEndpoint}?symbol=${symbol}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_API_KEY' // Replace with actual API key if needed
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API responded with status ${response.status}`);
+                }
+                
+                const data = await response.json();
+                return data.analysis || 'Analysis not available for this symbol at the moment.';
+            } catch (error) {
+                console.error('API Error:', error);
+                throw error;
+            }
+        }
+
+        // Fallback function to generate analysis if API fails
+        function generateFallbackAnalysis(input) {
+            if (input.toLowerCase().includes('btc') || input.toLowerCase().includes('bitcoin')) {
+                return generateAnalysis('BTC', 'Bitcoin');
+            } else if (input.toLowerCase().includes('eth') || input.toLowerCase().includes('ethereum')) {
+                return generateAnalysis('ETH', 'Ethereum');
+            } else if (input.toLowerCase().includes('sol') || input.toLowerCase().includes('solana')) {
+                return generateAnalysis('SOL', 'Solana');
+            } else if (input.toLowerCase().includes('nasdaq')) {
+                return 'NASDAQ token is currently in the accumulation phase with strong buy signals. The recent price action indicates a potential breakout in the next 24-48 hours. Technical indicators show bullish divergence on multiple timeframes.';
+            } else {
+                return 'I\'m sorry, I don\'t have enough data to analyze that yet. Try asking about BTC, ETH, SOL, or NASDAQ token.';
+            }
+        }
 
         // Submit button click event
         submitTerminal.addEventListener('click', handleTerminalInput);
