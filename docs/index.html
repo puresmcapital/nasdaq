@@ -3,50 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Analysis Dashboard</title>
+    <title>NASDAQ - AI-Powered Technical Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-100">
-    <header class="bg-white shadow-lg">
+<body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 shadow-lg">
         <nav class="container mx-auto px-6 py-3">
             <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-gray-800">
-                    Technical Analysis
+                <div class="text-2xl font-bold text-green-400 glitch">
+                    NASDAQ
                 </div>
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="#" class="text-gray-600 hover:text-gray-900">Home</a>
-                    <a href="#analysis" class="text-gray-600 hover:text-gray-900">Analysis</a>
-                    <a href="#about" class="text-gray-600 hover:text-gray-900">About</a>
+                    <a href="#" class="text-gray-300 hover:text-green-400">Home</a>
+                    <a href="#analysis" class="text-gray-300 hover:text-green-400">Analysis</a>
+                    <a href="#buy" class="text-gray-300 hover:text-green-400">How to Buy</a>
+                    <a href="#roadmap" class="text-gray-300 hover:text-green-400">Roadmap</a>
+                    <a href="#about" class="text-gray-300 hover:text-green-400">About</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/yourtelegram" target="_blank">Telegram</a>
+                    <a href="https://twitter.com/yourtwitter" target="_blank">Twitter</a>
+                    <a href="https://dexscreener.com/yourpair" target="_blank">DexScreener</a>
+                    <a href="https://coinmarketcap.com/yourcoin" target="_blank">CMC</a>
+                    <a href="https://coingecko.com/yourcoin" target="_blank">Coingecko</a>
                 </div>
             </div>
         </nav>
     </header>
 
     <main class="container mx-auto px-6 py-8">
-        <section class="mb-12">
-            <h1 class="text-4xl font-bold text-gray-800 mb-4">Welcome to Technical Analysis</h1>
-            <p class="text-xl text-gray-600">Real-time stock analysis and market insights</p>
+        <section class="mb-12 text-center">
+            <h1 class="text-5xl font-bold text-green-400 glitch mb-4">Welcome to NASDAQ</h1>
+            <p class="text-xl text-gray-300">AI-Powered Technical Analysis for the Modern Trader</p>
         </section>
 
-        <section id="analysis" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Latest Analysis</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Analysis cards will be dynamically added here -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-2">Stock Analysis</h3>
-                    <p class="text-gray-600">Detailed technical analysis of market trends and patterns.</p>
+        <section id="interactive" class="interactive-section">
+            <h2 class="text-3xl font-bold text-green-400 mb-6">Ask NASDAQ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <input type="text" class="search-box" placeholder="Search for a ticker...">
+                    <button class="buy-button">Search</button>
+                </div>
+                <div>
+                    <input type="text" class="search-box" placeholder="Ask NASDAQ anything...">
+                    <button class="buy-button">Ask</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="buy" class="buy-section">
+            <h2 class="text-3xl font-bold text-green-400 mb-6">How to Buy</h2>
+            <p class="text-gray-300 mb-4">Get your NASDAQ tokens now!</p>
+            <a href="https://jup.ag/swap" class="buy-button" target="_blank">Buy on Jupiter</a>
+        </section>
+
+        <section id="roadmap" class="mb-12">
+            <h2 class="text-3xl font-bold text-green-400 mb-6">Roadmap</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-green-400">Phase 1: Launch</h3>
+                    <p class="text-gray-300">Initial token launch and community building</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-green-400">Phase 2: Development</h3>
+                    <p class="text-gray-300">Enhanced AI analysis capabilities</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-xl font-bold text-green-400">Phase 3: Expansion</h3>
+                    <p class="text-gray-300">Multi-chain integration and partnerships</p>
                 </div>
             </div>
         </section>
 
         <section id="about" class="mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">About</h2>
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <p class="text-gray-600">
-                    This platform provides comprehensive technical analysis of stocks using advanced algorithms
-                    and machine learning models. Our analysis includes trend identification, pattern recognition,
-                    and market sentiment analysis.
+            <h2 class="text-3xl font-bold text-green-400 mb-6">About</h2>
+            <div class="bg-gray-800 rounded-lg shadow-md p-6">
+                <p class="text-gray-300">
+                    NASDAQ is an AI-powered technical analysis platform that provides real-time insights
+                    and analysis for cryptocurrency traders. Our advanced algorithms and machine learning
+                    models help you make informed trading decisions.
                 </p>
             </div>
         </section>
@@ -56,11 +93,11 @@
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <p>&copy; 2024 Technical Analysis. All rights reserved.</p>
+                    <p>&copy; 2024 NASDAQ. All rights reserved.</p>
                 </div>
                 <div class="flex space-x-4">
-                    <a href="#" class="hover:text-gray-300">Privacy Policy</a>
-                    <a href="#" class="hover:text-gray-300">Terms of Service</a>
+                    <a href="#" class="hover:text-green-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-green-400">Terms of Service</a>
                 </div>
             </div>
         </div>
