@@ -9,35 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, index * 150);
     });
 
-    // Mobile menu functionality
-    const menuButton = document.querySelector('.mobile-menu-btn');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    const closeMenuButton = document.querySelector('.close-mobile-menu');
-
-    if (menuButton && mobileMenu) {
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden');
-        });
-
-        // Close mobile menu when clicking a link
-        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        });
-        
-        // Close mobile menu when clicking the close button
-        if (closeMenuButton) {
-            closeMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            });
-        }
-    }
-
     // Copy to clipboard functionality
     window.copyToClipboard = (text) => {
         navigator.clipboard.writeText(text).then(() => {
@@ -80,14 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
 
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80, // Offset for header
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
