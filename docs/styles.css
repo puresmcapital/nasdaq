@@ -772,4 +772,26 @@ body {
 .disclaimer {
     font-size: 0.8rem;
     line-height: 1.4;
+}
+
+/* Twitter Widget */
+.twitter-widget-container {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 133, 202, 0.2);
+    padding: 10px;
+    width: 100%;
+}
+
+.twitter-widget-container:hover {
+    box-shadow: 0 0 25px rgba(0, 133, 202, 0.3);
+    border-color: var(--accent-primary);
+}
+
+/* Fix Twitter iframe sizing */
+.twitter-timeline {
+    width: 100% !important;
 } 
