@@ -7,7 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',
-  basePath: process.env.NODE_ENV === 'production' ? '/nasdaq' : '',
+  basePath: '',
   images: {
     unoptimized: true,
   },
