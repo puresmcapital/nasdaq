@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$NASDAQ - Crypto's #1 Tech Analysis AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://www.nasdaq.com/favicon.ico" type="image/x-icon">
+    <style>
+        /* NASDAQ Font Styles */
+        @font-face {
+            font-family: 'NASDAQ Sans';
+            src: url('https://www.nasdaq.com/assets/fonts/proxima-nova/ProximaNova-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'NASDAQ Sans';
+            src: url('https://www.nasdaq.com/assets/fonts/proxima-nova/ProximaNova-Bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        .nasdaq-font {
+            font-family: 'NASDAQ Sans', 'Inter', sans-serif;
+        }
+        .nasdaq-blue {
+            color: #0090BA;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <div class="cyber-grid"></div>
+    
+    <header class="sticky top-0 z-50 bg-opacity-90 bg-black border-b border-blue-500">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="nasdaq-logo mr-3">
+                        <svg width="60" height="17" viewBox="0 0 106 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M78.1281 22.8256C74.5111 22.8256 72.2639 20.7247 72.2639 17.3409C72.2639 13.8246 74.3374 11.6398 77.6759 11.6398L77.9581 11.6382C78.3755 11.6382 78.9524 11.6514 79.74 11.7517V7.50928H82.102V22.4441C82.102 22.4441 79.8589 22.8256 78.1281 22.8256ZM78.1076 13.5027C75.8219 13.5027 74.7106 14.7392 74.7106 17.2823C74.7106 19.5643 76.0503 20.9817 78.206 20.9817C78.6198 20.9817 79.0941 20.9559 79.74 20.8989V13.6537C79.0935 13.5508 78.5745 13.5027 78.1076 13.5027Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M45.8108 22.485L39.4365 11.3324L39.4349 22.485H37.214V8.36816H40.3225L46.6968 19.421L46.6941 8.36816H48.9435V22.485H45.8108Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M66.1111 22.7014C65.0383 22.7014 63.9186 22.5811 62.5857 22.3241L62.4441 22.2961V20.324L62.6552 20.3704C63.8286 20.6206 64.843 20.8369 65.8563 20.8369C66.677 20.8369 68.5858 20.706 68.5858 19.4975C68.5858 18.4827 67.2666 18.2289 66.2064 18.0257L66.1401 18.0125C65.9432 17.9735 65.7568 17.9365 65.5973 17.8964C64.0434 17.4916 62.3857 16.8847 62.3857 14.7965C62.3857 12.7605 63.9939 11.5927 66.7975 11.5927C68.1425 11.5927 69.1195 11.7383 69.9039 11.8555L70.2877 11.913V13.8244L70.0829 13.7891C69.1948 13.6249 68.1541 13.4566 67.1513 13.4566C66.04 13.4566 64.7161 13.6651 64.7161 14.6588C64.7161 15.482 65.7979 15.7179 67.0507 15.9908C68.8011 16.3728 70.9736 16.8483 70.9736 19.2426C70.9736 21.4406 69.2011 22.7014 66.1111 22.7014Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M88.7257 22.7014C86.2811 22.7014 84.0196 22.2708 84.0196 19.1445C84.0196 15.7427 87.5176 15.7427 89.608 15.7427C89.817 15.7427 90.7993 15.7876 91.102 15.8013C91.0993 13.893 91.0735 13.4376 88.313 13.4376C87.2186 13.4376 86.0026 13.6556 84.9298 13.8476L84.725 13.8846V11.9995L84.865 11.971C86.1079 11.7167 87.3065 11.5927 88.5289 11.5927C91.2046 11.5927 93.4719 11.8634 93.4719 15.1902V22.4476L93.3087 22.4644C91.4557 22.6729 89.9833 22.7014 88.7257 22.7014ZM89.5485 17.4251C87.5334 17.4251 86.2848 17.7223 86.2848 19.2025C86.2848 20.915 87.8788 21.058 89.3727 21.058C89.9323 21.058 90.9362 20.9868 91.2431 20.9636V17.4832C90.8098 17.4668 89.6849 17.4251 89.5485 17.4251Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M55.6178 22.7014C53.1731 22.7014 50.9117 22.2708 50.9117 19.1445C50.9117 15.7427 54.4097 15.7427 56.5001 15.7427C56.7085 15.7427 57.6913 15.7876 57.994 15.8013C57.9914 13.893 57.9656 13.4376 55.2051 13.4376C54.1107 13.4376 52.8952 13.6556 51.8218 13.8476L51.6171 13.8846V11.9995L51.7571 11.971C53.0005 11.7167 54.1986 11.5927 55.4209 11.5927C58.0967 11.5927 60.3639 11.8634 60.3639 15.1902V22.4476L60.2007 22.4644C58.3478 22.6729 56.8754 22.7014 55.6178 22.7014ZM56.4406 17.4251C54.4255 17.4251 53.1768 17.7223 53.1768 19.2025C53.1768 20.915 54.7708 21.058 56.2648 21.058C56.8243 21.058 57.8282 20.9868 58.1351 20.9636V17.4832C57.7019 17.4668 56.5769 17.4251 56.4406 17.4251Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M102.868 27.2799V22.6501C101.946 22.7799 101.456 22.7799 101.061 22.7799C100.127 22.7799 99.0893 22.5762 98.2844 22.2342C96.4867 21.4859 95.4134 19.5808 95.4134 17.1374C95.4134 15.9157 95.7098 13.6861 97.6938 12.4844C98.6871 11.8881 99.8642 11.6332 101.63 11.6332C102.264 11.6332 103.118 11.6823 103.943 11.7303L105.283 11.7994V26.2081L102.868 27.2799ZM101.453 13.4966C99.0572 13.4966 97.8412 14.7215 97.8412 17.1374C97.8412 20.2447 99.6558 20.897 101.179 20.897C101.549 20.897 101.967 20.897 102.89 20.7803V13.5636C102.167 13.5145 101.835 13.4966 101.453 13.4966Z" fill="#FFF"></path>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6726 0L18.8675 21.4961C18.6759 22.0265 18.1921 22.4138 17.612 22.4724V22.4851H25.8619C26.5089 22.4851 27.0616 22.0729 27.269 21.4961L35.0742 0H26.6726ZM16.9409 22.1567C17.4173 22.1567 17.8374 21.9203 18.0943 21.5593C18.1212 21.5218 18.2149 21.3899 18.2801 21.2099L21.1433 13.3225L19.4688 8.71643C19.255 8.20506 18.7502 7.84567 18.1622 7.84567C17.6863 7.84567 17.2657 8.08157 17.0088 8.44306C16.982 8.48001 16.8704 8.64835 16.823 8.79242L13.9609 16.6767L15.6423 21.3012C15.8602 21.8042 16.3587 22.1567 16.9409 22.1567ZM9.21221 7.51601H17.5522V7.52076C16.9326 7.54662 16.4077 7.94611 16.2066 8.50445L8.40206 30H0L7.80458 8.50445C8.01304 7.92764 8.56472 7.51601 9.21221 7.51601Z" fill="#0090BA"></path>
+                        </svg>
+                    </div>
+                    <div class="text-3xl font-bold text-blue-400 cyberpunk-text nasdaq-font">
+                        $NASDAQ
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6 text-sm md:text-base">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#analysis" class="nav-link">Analysis</a>
+                    <a href="#buy" class="nav-link">How to Buy</a>
+                    <a href="#roadmap" class="nav-link">Roadmap</a>
+                    <a href="#about" class="nav-link">About</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- TradingView Crypto Ticker Tape Widget -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            {
+                "proName": "BITSTAMP:BTCUSD",
+                "title": "Bitcoin"
+            },
+            {
+                "proName": "BITSTAMP:ETHUSD",
+                "title": "Ethereum"
+            },
+            {
+                "proName": "COINBASE:SOLUSD",
+                "title": "Solana"
+            },
+            {
+                "proName": "BITSTAMP:XRPUSD",
+                "title": "XRP"
+            },
+            {
+                "proName": "BINANCE:BNBUSD",
+                "title": "BNB"
+            },
+            {
+                "proName": "COINBASE:DOGEUSD",
+                "title": "Dogecoin"
+            },
+            {
+                "proName": "BINANCE:AVAXUSD",
+                "title": "Avalanche"
+            },
+            {
+                "proName": "COINBASE:ADAUSD",
+                "title": "Cardano"
+            },
+            {
+                "proName": "BINANCE:DOTUSD",
+                "title": "Polkadot"
+            },
+            {
+                "proName": "COINBASE:LINKUSD",
+                "title": "Chainlink"
+            }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "locale": "en"
+        }
+        </script>
+    </div>
+    <!-- TradingView Stock Ticker Tape Widget -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+        "symbols": [
+            {
+                "proName": "NASDAQ:AAPL",
+                "title": "Apple"
+            },
+            {
+                "proName": "NASDAQ:MSFT",
+                "title": "Microsoft"
+            },
+            {
+                "proName": "NASDAQ:GOOGL",
+                "title": "Google"
+            },
+            {
+                "proName": "NASDAQ:NVDA",
+                "title": "NVIDIA"
+            },
+            {
+                "proName": "NASDAQ:MSTR",
+                "title": "MicroStrategy"
+            },
+            {
+                "proName": "FOREXCOM:SPX500",
+                "title": "S&P 500"
+            },
+            {
+                "proName": "NASDAQ:NDX",
+                "title": "NASDAQ 100"
+            },
+            {
+                "proName": "NASDAQ:NFLX",
+                "title": "Netflix"
+            },
+            {
+                "proName": "NASDAQ:TSLA",
+                "title": "Tesla"
+            },
+            {
+                "proName": "NASDAQ:META",
+                "title": "Meta"
+            },
+            {
+                "proName": "NASDAQ:AMZN",
+                "title": "Amazon"
+            },
+            {
+                "proName": "NASDAQ:COIN",
+                "title": "Coinbase"
+            },
+            {
+                "proName": "NASDAQ:AMD",
+                "title": "AMD"
+            }
+        ],
+        "showSymbolLogo": true,
+        "colorTheme": "dark",
+        "isTransparent": true,
+        "displayMode": "adaptive",
+        "locale": "en"
+        }
+        </script>
+    </div>
+
+    <div class="banner-container mt-8">
+        <img src="assets/photo_2025-03-11_00-15-38.jpg" alt="$NASDAQ Banner" class="w-full object-contain h-48 md:h-64 rounded-lg shadow-xl">
+    </div>
+
+    <main class="container mx-auto px-6 py-12">
+        <section class="hero-section mb-20 text-center">
+            <h1 class="text-6xl font-bold cyberpunk-text mb-6">$NASDAQ</h1>
+            <p class="text-2xl text-blue-400 mb-8">Crypto's #1 Technical Analysis AI</p>
+            <div class="social-links flex justify-center flex-wrap gap-4 mb-8">
+                <a href="https://t.me/NASDAQSOLANAA" target="_blank" class="social-button"><i class="fab fa-telegram mr-2"></i>Telegram</a>
+                <a href="https://x.com/sol_nasdaq" target="_blank" class="social-button"><i class="fa-brands fa-x-twitter mr-2"></i>X</a>
+                <a href="https://dexscreener.com/solana/bn6sszjtv1f2leodncasresxvc5pcabyvrhuesy1tkrd" target="_blank" class="social-button">
+                    <img src="https://dexscreener.com/favicon.ico" alt="DexScreener" class="w-4 h-4 mr-2 inline">DexScreener
+                </a>
+                <a href="https://coinmarketcap.com/dexscan/solana/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd/" target="_blank" class="social-button">
+                    <img src="https://coinmarketcap.com/favicon.ico" alt="CoinMarketCap" class="w-4 h-4 mr-2 inline">CMC
+                </a>
+                <a href="https://www.geckoterminal.com/solana/pools/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd" target="_blank" class="social-button">
+                    <img src="https://www.geckoterminal.com/images/favicon.ico" alt="GeckoTerminal" class="w-4 h-4 mr-2 inline">CoinGecko
+                </a>
+            </div>
+            <div class="contract-address-container mb-8">
+                <p class="text-gray-400 mb-2">Contract Address:</p>
+                <div class="flex items-center justify-center">
+                    <span class="contract-address mr-2">DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap</span>
+                    <button class="copy-button" onclick="copyToClipboard('DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap')">
+                        <i class="far fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mt-10">
+                <a href="#buy" class="cta-button pulse-effect">Buy $NASDAQ Now</a>
+            </div>
+        </section>
+
+        <section id="analysis" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">AI-Powered Analysis</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-3">Advanced AI</h3>
+                    <p class="text-gray-300">State-of-the-art AI models trained on decades of market data to provide accurate predictions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3 class="text-2xl font-bold text-blue-400 mb-3">Real-Time Analysis</h3>
+                    <p class="text-gray-300">Get instant technical analysis for any stock or cryptocurrency with pinpoint accuracy.</p>
+                </div>
+            </div>
+            
+            <!-- TradingView Widget -->
+            <div class="tradingview-widget-container mt-12 rounded-lg overflow-hidden">
+                <div class="tradingview-widget-header bg-gray-900 p-4 border-b border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-400">Live Market Chart</h3>
+                </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div id="tradingview_chart" style="height:500px;"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                    new TradingView.widget({
+                        "width": "100%",
+                        "height": 500,
+                        "symbol": "COINBASE:SOLUSD",
+                        "interval": "D",
+                        "timezone": "Etc/UTC",
+                        "theme": "dark",
+                        "style": "1",
+                        "locale": "en",
+                        "toolbar_bg": "#f1f3f6",
+                        "enable_publishing": false,
+                        "allow_symbol_change": true,
+                        "container_id": "tradingview_chart"
+                    });
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+            
+            <!-- TradingView Technical Analysis Widget -->
+            <div class="tradingview-widget-container mt-6 rounded-lg overflow-hidden">
+                <div class="tradingview-widget-header bg-gray-900 p-4 border-b border-blue-500">
+                    <h3 class="text-xl font-bold text-blue-400">Technical Analysis</h3>
+                </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                    {
+                      "interval": "1D",
+                      "width": "100%",
+                      "isTransparent": true,
+                      "height": "450",
+                      "symbol": "COINBASE:SOLUSD",
+                      "showIntervalTabs": true,
+                      "locale": "en",
+                      "colorTheme": "dark"
+                    }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </section>
+
+        <section id="interactive" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">AI Terminal</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="terminal-container mt-10">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-button red"></span>
+                        <span class="terminal-button yellow"></span>
+                        <span class="terminal-button green"></span>
+                    </div>
+                    <div class="terminal-title">$NASDAQ Terminal v1.0</div>
+                </div>
+                <div class="terminal-body flex flex-col justify-center items-center py-12">
+                    <div class="coming-soon-badge mb-6 bg-blue-900 bg-opacity-30 rounded-full px-5 py-2 border border-blue-400">
+                        <span class="text-blue-400 font-bold">COMING SOON</span>
+                    </div>
+                    <h3 class="text-2xl text-white font-bold mb-4">Terminal Under Development</h3>
+                    <p class="terminal-line text-center max-w-lg mb-6">
+                        Our AI-powered technical analysis terminal is being moved from local to server deployment. 
+                        Stay tuned for the official launch!
+                    </p>
+                    <div class="terminal-cta text-center">
+                        <p class="text-gray-400 mb-4">For immediate technical analysis access:</p>
+                        <div class="flex justify-center space-x-6">
+                            <a href="https://t.me/NASDAQSOLANAA" target="_blank" class="terminal-social-link">
+                                <i class="fab fa-telegram mr-2"></i>Join our Telegram
+                            </a>
+                            <a href="https://x.com/sol_nasdaq" target="_blank" class="terminal-social-link">
+                                <i class="fa-brands fa-x-twitter mr-2"></i>Follow on X
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="buy" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">How to buy</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="buy-steps mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="buy-step bg-white text-black rounded-lg p-8 text-center">
+                    <h3 class="text-3xl font-bold mb-3">Step 1</h3>
+                    <p class="text-lg mb-8">Create any wallet of your choice, we recommend Phantom.</p>
+                    <img src="https://phantom.app/favicon.ico" alt="Phantom Wallet" class="w-24 h-24 mx-auto">
+                </div>
+                <div class="buy-step bg-white text-black rounded-lg p-8 text-center">
+                    <h3 class="text-3xl font-bold mb-3">Step 2</h3>
+                    <p class="text-lg mb-8">Fund your wallet with Solana, you can buy Solana from an exchange.</p>
+                    <img src="https://solana.com/favicon.ico" alt="Solana" class="w-24 h-24 mx-auto">
+                </div>
+                <div class="buy-step bg-white text-black rounded-lg p-8 text-center">
+                    <h3 class="text-3xl font-bold mb-3">Step 3</h3>
+                    <p class="text-lg mb-8">Head to Jupiter & paste our Contract Address, and swap your Solana to our token.</p>
+                    <img src="https://jup.ag/favicon.ico" alt="Jupiter" class="w-24 h-24 mx-auto">
+                </div>
+            </div>
+            <div class="flex justify-center mt-10">
+                <a href="https://jup.ag/swap/SOL-DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap" target="_blank" class="buy-button"><i class="fas fa-rocket mr-2"></i>Buy on Jupiter</a>
+            </div>
+        </section>
+
+        <!-- Social Media Section -->
+        <section id="social" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">Connect With Us</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="mt-10 flex flex-col items-center">
+                <div class="social-platforms flex justify-center gap-8 mb-12">
+                    <a href="https://t.me/NASDAQSOLANAA" target="_blank" class="social-circle-button">
+                        <img src="https://telegram.org/img/t_logo.svg" alt="Telegram" class="w-12 h-12">
+                    </a>
+                    <a href="https://x.com/sol_nasdaq" target="_blank" class="social-circle-button">
+                        <img src="https://seeklogo.com/images/X-logo-E3F1763FE8-seeklogo.com.png" alt="X" class="w-10 h-10">
+                    </a>
+                </div>
+                
+                <!-- X Post Section -->
+                <div class="twitter-widget-container w-full">
+                    <a class="twitter-timeline" data-width="100%" data-height="600" data-theme="dark" href="https://twitter.com/sol_nasdaq">X Posts by $NASDAQ</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </section>
+
+        <section id="partners" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">Our Partners</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="mt-10 flex flex-col items-center">
+                <div class="partner-card bg-gray-900 p-6 rounded-lg max-w-2xl w-full mb-8">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-2xl font-bold text-blue-400 mb-2">Eliza OS</h3>
+                            <p class="text-gray-300">The Operating System for AI Agents</p>
+                        </div>
+                        <a href="https://www.elizaos.ai/" target="_blank" class="partner-logo">
+                            <img src="https://www.elizaos.ai/favicon.ico" alt="Eliza OS" class="w-16 h-16">
+                        </a>
+                    </div>
+                    <p class="mt-4 text-gray-400">
+                        $NASDAQ technical analysis is powered by Eliza OS, providing cutting-edge AI capabilities to deliver accurate market predictions.
+                    </p>
+                    <div class="mt-4">
+                        <a href="https://www.elizaos.ai/" target="_blank" class="text-blue-400 flex items-center">
+                            Visit Eliza OS <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- ElizaOS Technology Details -->
+                <div class="elizaos-details bg-gray-900 p-6 rounded-lg max-w-2xl w-full">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">ElizaOS Technology</h3>
+                    <p class="text-gray-300 mb-4">
+                        Eliza is a powerful multi-agent simulation framework designed to create, deploy, and manage autonomous AI agents. 
+                        Built with TypeScript, it provides a flexible and extensible platform for developing intelligent agents that can interact 
+                        across multiple platforms while maintaining consistent personalities and knowledge.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-blue-300 mb-2">Key Features</h4>
+                            <ul class="text-gray-400 space-y-1">
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Platform Integration</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Flexible Model Support</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Character System</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Multi-Agent Architecture</li>
+                                <li><i class="fas fa-check text-green-400 mr-2"></i>Memory Management</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="text-lg font-semibold text-blue-300 mb-2">Use Cases</h4>
+                            <ul class="text-gray-400 space-y-1">
+                                <li><i class="fas fa-robot text-blue-400 mr-2"></i>AI Assistants</li>
+                                <li><i class="fas fa-chart-line text-blue-400 mr-2"></i>Market Analysis</li>
+                                <li><i class="fas fa-comments text-blue-400 mr-2"></i>Social Media Personas</li>
+                                <li><i class="fas fa-brain text-blue-400 mr-2"></i>Knowledge Workers</li>
+                                <li><i class="fas fa-user-friends text-blue-400 mr-2"></i>Interactive Characters</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-900 bg-opacity-20 p-4 rounded-lg border border-blue-800">
+                        <h4 class="text-lg font-semibold text-blue-300 mb-2">$NASDAQ Implementation</h4>
+                        <p class="text-gray-300">
+                            Our technical analysis capabilities are built on ElizaOS's core features, enabling our AI to process market data,
+                            identify patterns, and generate accurate predictions with unprecedented precision. The framework's ability to handle
+                            complex data streams and maintain context awareness makes it the perfect foundation for our financial analysis tools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="mb-20">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">Roadmap</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="roadmap-container mt-10">
+                <div class="roadmap-item">
+                    <div class="roadmap-point completed"></div>
+                    <div class="roadmap-content">
+                        <h3 class="text-2xl font-bold text-blue-400">Q1 2025: Launch</h3>
+                        <ul class="roadmap-list">
+                            <li>Token Launch on Solana</li>
+                            <li>Website Launch</li>
+                            <li>Community Building</li>
+                            <li>DEX Listings</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point in-progress"></div>
+                    <div class="roadmap-content">
+                        <h3 class="text-2xl font-bold text-blue-400">Q2 2025: Development</h3>
+                        <ul class="roadmap-list">
+                            <li>AI Terminal Beta Release</li>
+                            <li>Marketing Campaigns</li>
+                            <li>CEX Listings</li>
+                            <li>Community AMAs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"></div>
+                    <div class="roadmap-content">
+                        <h3 class="text-2xl font-bold text-blue-400">Q3 2025: Expansion</h3>
+                        <ul class="roadmap-list">
+                            <li>Advanced AI Features</li>
+                            <li>Professional Trading Terminal</li>
+                            <li>Partnerships with Trading Platforms</li>
+                            <li>Mobile App Development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"></div>
+                    <div class="roadmap-content">
+                        <h3 class="text-2xl font-bold text-blue-400">Q4 2025: Evolution</h3>
+                        <ul class="roadmap-list">
+                            <li>Cross-Chain Integration</li>
+                            <li>Institutional Partnerships</li>
+                            <li>DAO Governance</li>
+                            <li>Staking and Rewards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="mb-12">
+            <div class="section-header">
+                <h2 class="text-4xl font-bold cyberpunk-text mb-4">About $NASDAQ</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-container mt-10 bg-opacity-20 bg-blue-900 rounded-lg shadow-neon p-8">
+                <p class="text-xl text-gray-300 leading-relaxed">
+                    $NASDAQ is the first AI-powered technical analysis token on Solana, bringing professional-grade market insights to everyone. 
+                    Our mission is to democratize financial intelligence by combining cutting-edge AI with blockchain technology.
+                </p>
+                <p class="text-xl text-gray-300 leading-relaxed mt-4">
+                    The $NASDAQ token powers our ecosystem, providing holders with access to premium features and governance rights 
+                    as we build the future of decentralized financial intelligence.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 pt-12 pb-6">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap mb-8">
+                <div class="w-full md:w-1/3 mb-8 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="nasdaq-logo mr-3">
+                            <svg width="60" height="17" viewBox="0 0 106 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M78.1281 22.8256C74.5111 22.8256 72.2639 20.7247 72.2639 17.3409C72.2639 13.8246 74.3374 11.6398 77.6759 11.6398L77.9581 11.6382C78.3755 11.6382 78.9524 11.6514 79.74 11.7517V7.50928H82.102V22.4441C82.102 22.4441 79.8589 22.8256 78.1281 22.8256ZM78.1076 13.5027C75.8219 13.5027 74.7106 14.7392 74.7106 17.2823C74.7106 19.5643 76.0503 20.9817 78.206 20.9817C78.6198 20.9817 79.0941 20.9559 79.74 20.8989V13.6537C79.0935 13.5508 78.5745 13.5027 78.1076 13.5027Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M45.8108 22.485L39.4365 11.3324L39.4349 22.485H37.214V8.36816H40.3225L46.6968 19.421L46.6941 8.36816H48.9435V22.485H45.8108Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M66.1111 22.7014C65.0383 22.7014 63.9186 22.5811 62.5857 22.3241L62.4441 22.2961V20.324L62.6552 20.3704C63.8286 20.6206 64.843 20.8369 65.8563 20.8369C66.677 20.8369 68.5858 20.706 68.5858 19.4975C68.5858 18.4827 67.2666 18.2289 66.2064 18.0257L66.1401 18.0125C65.9432 17.9735 65.7568 17.9365 65.5973 17.8964C64.0434 17.4916 62.3857 16.8847 62.3857 14.7965C62.3857 12.7605 63.9939 11.5927 66.7975 11.5927C68.1425 11.5927 69.1195 11.7383 69.9039 11.8555L70.2877 11.913V13.8244L70.0829 13.7891C69.1948 13.6249 68.1541 13.4566 67.1513 13.4566C66.04 13.4566 64.7161 13.6651 64.7161 14.6588C64.7161 15.482 65.7979 15.7179 67.0507 15.9908C68.8011 16.3728 70.9736 16.8483 70.9736 19.2426C70.9736 21.4406 69.2011 22.7014 66.1111 22.7014Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M88.7257 22.7014C86.2811 22.7014 84.0196 22.2708 84.0196 19.1445C84.0196 15.7427 87.5176 15.7427 89.608 15.7427C89.817 15.7427 90.7993 15.7876 91.102 15.8013C91.0993 13.893 91.0735 13.4376 88.313 13.4376C87.2186 13.4376 86.0026 13.6556 84.9298 13.8476L84.725 13.8846V11.9995L84.865 11.971C86.1079 11.7167 87.3065 11.5927 88.5289 11.5927C91.2046 11.5927 93.4719 11.8634 93.4719 15.1902V22.4476L93.3087 22.4644C91.4557 22.6729 89.9833 22.7014 88.7257 22.7014ZM89.5485 17.4251C87.5334 17.4251 86.2848 17.7223 86.2848 19.2025C86.2848 20.915 87.8788 21.058 89.3727 21.058C89.9323 21.058 90.9362 20.9868 91.2431 20.9636V17.4832C90.8098 17.4668 89.6849 17.4251 89.5485 17.4251Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M55.6178 22.7014C53.1731 22.7014 50.9117 22.2708 50.9117 19.1445C50.9117 15.7427 54.4097 15.7427 56.5001 15.7427C56.7085 15.7427 57.6913 15.7876 57.994 15.8013C57.9914 13.893 57.9656 13.4376 55.2051 13.4376C54.1107 13.4376 52.8952 13.6556 51.8218 13.8476L51.6171 13.8846V11.9995L51.7571 11.971C53.0005 11.7167 54.1986 11.5927 55.4209 11.5927C58.0967 11.5927 60.3639 11.8634 60.3639 15.1902V22.4476L60.2007 22.4644C58.3478 22.6729 56.8754 22.7014 55.6178 22.7014ZM56.4406 17.4251C54.4255 17.4251 53.1768 17.7223 53.1768 19.2025C53.1768 20.915 54.7708 21.058 56.2648 21.058C56.8243 21.058 57.8282 20.9868 58.1351 20.9636V17.4832C57.7019 17.4668 56.5769 17.4251 56.4406 17.4251Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M102.868 27.2799V22.6501C101.946 22.7799 101.456 22.7799 101.061 22.7799C100.127 22.7799 99.0893 22.5762 98.2844 22.2342C96.4867 21.4859 95.4134 19.5808 95.4134 17.1374C95.4134 15.9157 95.7098 13.6861 97.6938 12.4844C98.6871 11.8881 99.8642 11.6332 101.63 11.6332C102.264 11.6332 103.118 11.6823 103.943 11.7303L105.283 11.7994V26.2081L102.868 27.2799ZM101.453 13.4966C99.0572 13.4966 97.8412 14.7215 97.8412 17.1374C97.8412 20.2447 99.6558 20.897 101.179 20.897C101.549 20.897 101.967 20.897 102.89 20.7803V13.5636C102.167 13.5145 101.835 13.4966 101.453 13.4966Z" fill="#FFF"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.6726 0L18.8675 21.4961C18.6759 22.0265 18.1921 22.4138 17.612 22.4724V22.4851H25.8619C26.5089 22.4851 27.0616 22.0729 27.269 21.4961L35.0742 0H26.6726ZM16.9409 22.1567C17.4173 22.1567 17.8374 21.9203 18.0943 21.5593C18.1212 21.5218 18.2149 21.3899 18.2801 21.2099L21.1433 13.3225L19.4688 8.71643C19.255 8.20506 18.7502 7.84567 18.1622 7.84567C17.6863 7.84567 17.2657 8.08157 17.0088 8.44306C16.982 8.48001 16.8704 8.64835 16.823 8.79242L13.9609 16.6767L15.6423 21.3012C15.8602 21.8042 16.3587 22.1567 16.9409 22.1567ZM9.21221 7.51601H17.5522V7.52076C16.9326 7.54662 16.4077 7.94611 16.2066 8.50445L8.40206 30H0L7.80458 8.50445C8.01304 7.92764 8.56472 7.51601 9.21221 7.51601Z" fill="#0090BA"></path>
+                            </svg>
+                        </div>
+                        <div class="text-3xl font-bold text-blue-400 cyberpunk-text nasdaq-font">
+                            $NASDAQ
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">© 2024 $NASDAQ. All rights reserved.</p>
+                    <p class="text-gray-400 mb-2">Contract: DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap</p>
+                </div>
+                <div class="w-full md:w-2/3 flex flex-wrap">
+                    <div class="w-1/2 md:w-1/3 mb-6 md:mb-0">
+                        <h3 class="text-lg font-bold mb-4">Links</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-gray-400 hover:text-blue-400">Home</a></li>
+                            <li><a href="#analysis" class="text-gray-400 hover:text-blue-400">Analysis</a></li>
+                            <li><a href="#buy" class="text-gray-400 hover:text-blue-400">How to Buy</a></li>
+                            <li><a href="#roadmap" class="text-gray-400 hover:text-blue-400">Roadmap</a></li>
+                        </ul>
+                    </div>
+                    <div class="w-1/2 md:w-1/3 mb-6 md:mb-0">
+                        <h3 class="text-lg font-bold mb-4">Social</h3>
+                        <ul class="space-y-2">
+                            <li><a href="https://t.me/NASDAQSOLANAA" class="text-gray-400 hover:text-blue-400">Telegram</a></li>
+                            <li><a href="https://x.com/sol_nasdaq" class="text-gray-400 hover:text-blue-400">X</a></li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/3">
+                        <h3 class="text-lg font-bold mb-4">Resources</h3>
+                        <ul class="space-y-2">
+                            <li><a href="https://dexscreener.com/solana/bn6sszjtv1f2leodncasresxvc5pcabyvrhuesy1tkrd" class="text-gray-400 hover:text-blue-400">DexScreener</a></li>
+                            <li><a href="https://coinmarketcap.com/dexscan/solana/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd/" class="text-gray-400 hover:text-blue-400">CoinMarketCap</a></li>
+                            <li><a href="https://www.geckoterminal.com/solana/pools/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd" class="text-gray-400 hover:text-blue-400">GeckoTerminal</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="disclaimer border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
+                <p class="mb-2"><strong>DISCLAIMER:</strong> $NASDAQ IS NOT AFFILIATED WITH NASDAQ, INC. OR ANY OF ITS SUBSIDIARIES.</p>
+                <p class="mb-2">NOT FINANCIAL ADVICE. FOR EDUCATIONAL PURPOSES ONLY.</p>
+                <p>Cryptocurrency investments are volatile and high risk. Always do your own research before investing.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
