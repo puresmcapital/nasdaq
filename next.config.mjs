@@ -7,7 +7,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',
-  basePath: '',
+  basePath: '/nasdaq',
   images: {
     unoptimized: true,
   },
