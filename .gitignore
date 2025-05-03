@@ -5,7 +5,7 @@
 
 # next.js
 /.next/
-/out/
+# /out/  # Commented out to allow out directory on gh-pages branch
 
 # production
 /build
