@@ -8,7 +8,7 @@ const nextConfig = {
   },
   output: 'export',
   // Remove basePath during local development
-  // basePath: '/nasdaq',
+  basePath: '/nasdaq',
   images: {
     unoptimized: true,
   },
