@@ -8,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Bot, Copy, ExternalLink, LineChart, Rocket } from "lucide-react"
 
-export default function Home() {
+export default function Page() {
   const tradingViewChartRef = useRef<HTMLDivElement>(null);
   const tradingViewTechAnalysisRef = useRef<HTMLDivElement>(null);
   const tradingViewCryptoTickerRef = useRef<HTMLDivElement>(null);
@@ -304,6 +304,31 @@ export default function Home() {
         <div ref={tradingViewStockTickerRef}></div>
       </div>
 
+      {/* Banner Section */}
+      <section className="w-full bg-black py-4">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            {/* First Banner - Full Width on Mobile, 2/3 Width on Desktop */}
+            <div className="md:col-span-2 rounded-lg overflow-hidden">
+              <img 
+                src="/images/nasdaq-eliza-banner.jpg" 
+                alt="NASDAQ ELIZA OS Banner" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
+            
+            {/* Second Banner - Full Width on Mobile, 1/3 Width on Desktop */}
+            <div className="rounded-lg overflow-hidden">
+              <img 
+                src="/images/nasdaq-ai-character.png" 
+                alt="NASDAQ AI Character" 
+                className="w-full h-auto object-cover" 
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <main className="flex-1">
         {/* Hero Section */}
         <section className="relative overflow-hidden py-20 md:py-32">
@@ -380,6 +405,23 @@ export default function Home() {
                 </Link>
               </div>
               
+              {/* Live Chart */}
+              <div className="mx-auto mb-10 max-w-4xl w-full rounded-xl border border-blue-500/30 bg-blue-500/5 p-4 backdrop-blur-sm">
+                <p className="mb-2 text-xl font-semibold text-blue-400">Live Chart:</p>
+                <div className="aspect-video w-full rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                  <iframe 
+                    height="100%" 
+                    width="100%" 
+                    id="geckoterminal-embed" 
+                    title="GeckoTerminal Embed" 
+                    src="https://www.geckoterminal.com/solana/pools/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd?embed=1&info=0&swaps=0&grayscale=0&light_chart=0&chart_type=price&resolution=1h" 
+                    frameBorder="0" 
+                    allow="clipboard-write" 
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+              
               <div className="mx-auto mb-10 max-w-lg rounded-xl border border-blue-500/30 bg-blue-500/5 p-4 backdrop-blur-sm">
                 <p className="mb-2 text-xs text-gray-400">Contract Address:</p>
                 <div className="flex items-center justify-center">
@@ -421,32 +463,6 @@ export default function Home() {
                 AI-Powered <span className="text-blue-400">Analysis</span>
               </h2>
               <div className="mx-auto h-1 w-20 bg-gradient-to-r from-blue-500 to-transparent"></div>
-            </div>
-            
-            <div className="mb-16 grid gap-8 md:grid-cols-2">
-              <Card className="border-blue-500/20 bg-black/50 backdrop-blur-sm transition-all hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
-                    <Bot className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-blue-400">Advanced AI</h3>
-                  <p className="text-gray-400">
-                    State-of-the-art AI models trained on decades of market data to provide accurate predictions and insights.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-blue-500/20 bg-black/50 backdrop-blur-sm transition-all hover:border-blue-500/40 hover:shadow-lg hover:shadow-blue-500/5">
-                <CardContent className="p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-500/10">
-                    <LineChart className="h-6 w-6 text-blue-400" />
-                  </div>
-                  <h3 className="mb-3 text-xl font-bold text-blue-400">Real-Time Analysis</h3>
-                  <p className="text-gray-400">
-                    Get instant technical analysis for any stock or cryptocurrency with pinpoint accuracy and actionable insights.
-                  </p>
-                </CardContent>
-              </Card>
             </div>
             
             <div className="mb-12 overflow-hidden rounded-xl border border-blue-500/20 bg-black/50 backdrop-blur-sm">
@@ -830,4 +846,257 @@ export default function Home() {
                 </div>
                 
                 <div className="relative mb-12 pl-12 md:pl-16">
-                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border\
+                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-500 bg-black">
+                    <div className="h-4 w-4 rounded-full bg-blue-500"></div>
+                  </div>
+                  <Card className="border-blue-500/20 bg-black/50 backdrop-blur-sm transition-all hover:border-blue-500/40 hover:translate-x-2">
+                    <CardContent className="p-6">
+                      <h3 className="mb-4 text-2xl font-bold text-blue-400">Q2 2025: Growth</h3>
+                      <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          AI Terminal Launch
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          CEX Listings
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Marketing Expansion
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="relative pl-12 md:pl-16">
+                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-500/50 bg-black">
+                    <div className="h-4 w-4 rounded-full bg-blue-500/50"></div>
+                  </div>
+                  <Card className="border-blue-500/20 bg-black/50 backdrop-blur-sm transition-all hover:border-blue-500/40 hover:translate-x-2">
+                    <CardContent className="p-6">
+                      <h3 className="mb-4 text-2xl font-bold text-blue-400">Q3 2025: Expansion</h3>
+                      <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Advanced Trading Features
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Partnership Announcements
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Community Governance
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Mobile App Development
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="relative pl-12 md:pl-16">
+                  <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-blue-500/20 bg-black">
+                    <div className="h-4 w-4 rounded-full bg-blue-500/20"></div>
+                  </div>
+                  <Card className="border-blue-500/20 bg-black/50 backdrop-blur-sm transition-all hover:border-blue-500/40 hover:translate-x-2">
+                    <CardContent className="p-6">
+                      <h3 className="mb-4 text-2xl font-bold text-blue-400">Q4 2025: Evolution</h3>
+                      <ul className="space-y-2 text-gray-300">
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Cross-Chain Integration
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Institutional Partnerships
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          DAO Governance
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 text-blue-400">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                          </svg>
+                          Staking and Rewards
+                        </li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="py-20 bg-gradient-to-b from-black/95 to-black">
+          <div className="container mx-auto px-4">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+                About <span className="text-blue-400">$NASDAQ</span>
+              </h2>
+              <div className="mx-auto h-1 w-20 bg-gradient-to-r from-blue-500 to-transparent"></div>
+            </div>
+            
+            <div className="mx-auto max-w-4xl bg-blue-900/20 rounded-xl border border-blue-500/30 p-8 shadow-lg backdrop-blur-sm">
+              <p className="mb-6 text-xl text-gray-300 leading-relaxed">
+                $NASDAQ is the first AI-powered technical analysis token on Solana, bringing professional-grade market insights to everyone. 
+                Our mission is to democratize financial intelligence by combining cutting-edge AI with blockchain technology.
+              </p>
+              <p className="text-xl text-gray-300 leading-relaxed">
+                The $NASDAQ token powers our ecosystem, providing holders with access to premium features and governance rights 
+                as we build the future of decentralized financial intelligence.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <footer className="border-t border-blue-500/30 bg-black py-12">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+              <div className="col-span-1">
+                <div className="flex items-center gap-3">
+                  <div className="nasdaq-logo">
+                    <svg width="32" height="10" viewBox="0 0 106 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fillRule="evenodd" clipRule="evenodd" d="M26.6726 0L18.8675 21.4961C18.6759 22.0265 18.1921 22.4138 17.612 22.4724V22.4851H25.8619C26.5089 22.4851 27.0616 22.0729 27.269 21.4961L35.0742 0H26.6726Z" fill="#0090BA"></path>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M16.9409 22.1567C17.4173 22.1567 17.8374 21.9203 18.0943 21.5593C18.1212 21.5218 18.2149 21.3899 18.2801 21.2099L21.1433 13.3225L19.4688 8.71643C19.255 8.20506 18.7502 7.84567 18.1622 7.84567C17.6863 7.84567 17.2657 8.08157 17.0088 8.44306C16.982 8.48001 16.8704 8.64835 16.823 8.79242L13.9609 16.6767L15.6423 21.3012C15.8602 21.8042 16.3587 22.1567 16.9409 22.1567ZM9.21221 7.51601H17.5522V7.52076C16.9326 7.54662 16.4077 7.94611 16.2066 8.50445L8.40206 30H0L7.80458 8.50445C8.01304 7.92764 8.56472 7.51601 9.21221 7.51601Z" fill="#0090BA"></path>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M78.1281 22.8256C74.5111 22.8256 72.2639 20.7247 72.2639 17.3409C72.2639 13.8246 74.3374 11.6398 77.6759 11.6398L77.9581 11.6382C78.3755 11.6382 78.9524 11.6514 79.74 11.7517V7.50928H82.102V22.4441C82.102 22.4441 79.8589 22.8256 78.1281 22.8256Z" fill="#FFF"></path>
+                      <path fillRule="evenodd" clipRule="evenodd" d="M45.8108 22.485L39.4365 11.3324L39.4349 22.485H37.214V8.36816H40.3225L46.6968 19.421L46.6941 8.36816H48.9435V22.485H45.8108Z" fill="#FFF"></path>
+                    </svg>
+                  </div>
+                  <div className="text-xl font-bold text-blue-400">$NASDAQ</div>
+                </div>
+                <p className="mt-4 text-sm text-gray-400">© 2024 $NASDAQ. All rights reserved.</p>
+                <p className="mt-2 text-sm text-gray-400">
+                  Contract: DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap
+                </p>
+              </div>
+
+              <div className="col-span-1">
+                <h3 className="mb-4 text-lg font-bold text-white">Links</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link href="#" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#analysis" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      Analysis
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#buy" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      How to Buy
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#roadmap" className="text-gray-400 hover:text-blue-400 transition-colors">
+                      Roadmap
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="col-span-1">
+                <h3 className="mb-4 text-lg font-bold text-white">Social</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link 
+                      href="https://t.me/NASDAQSOLANAA" 
+                      target="_blank"
+                      className="text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      Telegram
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="https://x.com/sol_nasdaq" 
+                      target="_blank"
+                      className="text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      X
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="col-span-1">
+                <h3 className="mb-4 text-lg font-bold text-white">Resources</h3>
+                <ul className="space-y-2">
+                  <li>
+                    <Link 
+                      href="https://dexscreener.com/solana/bn6sszjtv1f2leodncasresxvc5pcabyvrhuesy1tkrd"
+                      target="_blank" 
+                      className="text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      DexScreener
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="https://coinmarketcap.com/dexscan/solana/Bn6ssZJTv1f2LeoDncaSRESXvc5pcABYVRHuesY1TKRd/"
+                      target="_blank"
+                      className="text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      CoinMarketCap
+                    </Link>
+                  </li>
+                  <li>
+                    <Link 
+                      href="https://auto.fun/token/DFUhdc8YXzeENeGaSJrus5yYfKsq978oCcxfqgJnQ5ap"
+                      target="_blank"
+                      className="text-gray-400 hover:text-blue-400 transition-colors"
+                    >
+                      AUTO.FUN
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
+}
+
