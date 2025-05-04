@@ -7,8 +7,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',
-  // Remove basePath during local development
-  basePath: '/nasdaq',
+  // Only use basePath in production, not during local development
+  basePath: process.env.NODE_ENV === 'production' ? '/nasdaq' : '',
   images: {
     unoptimized: true,
   },
