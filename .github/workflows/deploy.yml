@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -23,10 +25,20 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      - name: Verify images exist
+        run: |
+          echo "Checking public/images directory:"
+          ls -la public/images
+          
       - name: Build
         env:
           NODE_ENV: production
         run: npm run build
+
+      - name: Check build output
+        run: |
+          echo "Checking out/images directory:"
+          ls -la out/images
 
       - name: Add .nojekyll file
         run: touch out/.nojekyll

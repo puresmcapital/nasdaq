@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { ArrowRight, Bot, Copy, ExternalLink, LineChart, Rocket } from "lucide-react"
+import { getImagePath } from "@/lib/utils"
 
 export default function Page() {
   const tradingViewChartRef = useRef<HTMLDivElement>(null);
@@ -311,7 +312,7 @@ export default function Page() {
             {/* First Banner - Full Width on Mobile, 2/3 Width on Desktop */}
             <div className="md:col-span-2 rounded-lg overflow-hidden">
               <img 
-                src="/images/nasdaq-eliza-banner.jpg" 
+                src={getImagePath('/images/nasdaq-eliza-banner.jpg')}
                 alt="NASDAQ ELIZA OS Banner" 
                 className="w-full h-auto object-cover" 
               />
@@ -320,7 +321,7 @@ export default function Page() {
             {/* Second Banner - Full Width on Mobile, 1/3 Width on Desktop */}
             <div className="rounded-lg overflow-hidden">
               <img 
-                src="/images/nasdaq-ai-character.png" 
+                src={getImagePath('/images/nasdaq-ai-character.png')}
                 alt="NASDAQ AI Character" 
                 className="w-full h-auto object-cover" 
               />
