@@ -15,10 +15,6 @@ export default function Page() {
   const tradingViewStockTickerRef = useRef<HTMLDivElement>(null);
   const twitterTimelineRef = useRef<HTMLDivElement>(null);
 
-  // Prefix for static assets to support GitHub Pages basePath
-  const isProd = typeof window !== 'undefined' && window.location.pathname.startsWith('/nasdaq');
-  const imgPrefix = isProd ? '/nasdaq' : '';
-
   useEffect(() => {
     // Load TradingView widgets
     const loadTradingViewWidgets = () => {
@@ -315,7 +311,7 @@ export default function Page() {
             {/* First Banner - Full Width on Mobile, 2/3 Width on Desktop */}
             <div className="md:col-span-2 rounded-lg overflow-hidden">
               <img 
-                src={imgPrefix + "/images/nasdaq-eliza-banner.jpg"} 
+                src="/images/nasdaq-eliza-banner.jpg" 
                 alt="NASDAQ ELIZA OS Banner" 
                 className="w-full h-auto object-cover" 
               />
@@ -324,7 +320,7 @@ export default function Page() {
             {/* Second Banner - Full Width on Mobile, 1/3 Width on Desktop */}
             <div className="rounded-lg overflow-hidden">
               <img 
-                src={imgPrefix + "/images/nasdaq-ai-character.png"} 
+                src="/images/nasdaq-ai-character.png" 
                 alt="NASDAQ AI Character" 
                 className="w-full h-auto object-cover" 
               />
