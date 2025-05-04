@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const repo = 'nasdaq';
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
@@ -7,8 +10,8 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   output: 'export',
-  // Only use basePath in production, not during local development
-  basePath: process.env.NODE_ENV === 'production' ? '/nasdaq' : '',
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
   images: {
     unoptimized: true,
   },
